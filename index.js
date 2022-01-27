@@ -56,15 +56,4 @@ client.slashCommands = new Collection();
 });
 
 
-//snipe map
-client.snipes = new Map() //create a new map
-client.on('messageDelete', function(message, channel) {
-    client.snipes.set(message.channel.id, { //get the channel of message
-        content: message.content, //snipe the message that was deleted
-        author: message.author.id, //get the message author the the deleted message
-        image: message.attachments.first() ? message.attachments.first().proxyURL : null //get the deleted image if there is one
-    })
-})
-
-//We will move our token from config.json to .env
 client.login(token)
